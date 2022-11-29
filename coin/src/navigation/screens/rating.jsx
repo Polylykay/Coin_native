@@ -4,7 +4,7 @@ import { Text, View } from 'react-native';
 export default function RatingScreen({navigation}) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text onPress={() =>  navigation.navigate('Home')} style={{fontSize: 26}}>Rating Screen</Text>
+      <Text onPress={() =>  navigation.navigate('Walet')} style={{fontSize: 26}}>Rating Screen</Text>
     </View>
   );
 };
