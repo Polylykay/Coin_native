@@ -36,6 +36,7 @@ export function MainContainer() {
                         return <Ionicons name={iconName} size={size} color={color}/>
                     },
                 })}
+
                 tabBarOptions={{
                     activeTintColor: 'indigo',
                     labelStyle: { fontSize: 10 },
