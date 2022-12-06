@@ -9,7 +9,7 @@ const InputTextComment = () => {
       <TextInput
         style={styles.input}
         onChangeText={onChangeText}
-        placeholder="Введите сообщение"
+        placeholder="Введите имя пользователя"
         value={text}
         maxLength={30}
       />
@@ -19,7 +19,7 @@ const InputTextComment = () => {
 
 const styles = StyleSheet.create({
   input: {
-    height: 70,
+    height: 50,
     width: 330,
     margin: 12,
     borderWidth: 1,

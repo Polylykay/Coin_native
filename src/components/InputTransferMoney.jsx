@@ -1,7 +1,7 @@
-import React from "react";
-import { SafeAreaView, StyleSheet, TextInput } from "react-native";
+import React from 'react';
+import { SafeAreaView, StyleSheet, TextInput } from 'react-native';
 
-const InputTextComment = () => {
+const InputTransferMoney = () => {
   const [text, onChangeText] = React.useState(null);
 
   return (
@@ -9,7 +9,7 @@ const InputTextComment = () => {
       <TextInput
         style={styles.input}
         onChangeText={onChangeText}
-        placeholder="Введите сообщение"
+        placeholder="Введите сумму для перевода"
         value={text}
         maxLength={30}
       />
@@ -19,7 +19,7 @@ const InputTextComment = () => {
 
 const styles = StyleSheet.create({
   input: {
-    height: 70,
+    height: 50,
     width: 330,
     margin: 12,
     borderWidth: 1,
@@ -28,4 +28,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default InputTextComment;
+export default InputTransferMoney;
