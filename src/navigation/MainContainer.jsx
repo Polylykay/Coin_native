@@ -38,7 +38,7 @@ export function MainContainer() {
                 })}
 
                 tabBarOptions={{
-                    activeTintColor: 'indigo',
+                    activeTintColor: '#BD0EF1',
                     labelStyle: { fontSize: 10 },
                     style: { padding: 10, height: 70}
                 }}
