@@ -16,7 +16,7 @@ const Tab = createBottomTabNavigator();
 
 export function MainContainer() {
     return (
-        <NavigationContainer>
+        <NavigationContainer independent={true}>
             <Tab.Navigator
                 initialRouteName={walletName}
                 screenOptions={({ route }) => ({

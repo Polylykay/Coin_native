@@ -7,9 +7,10 @@ import t from 'tcomb-form-native';
 
 const Form = t.form.Form;
 
-const User = t.struct({
+const Forms = t.struct({
+  sendingcoins: t.String,
   username: t.String,
-  password: t.String,
+  message: t.String,
 });
 
 const formStyles = {
@@ -37,10 +38,13 @@ const formStyles = {
 
 const options = {
   fields: {
+    sendingcoins: {
+      error: '?'
+    },
     username: {
       error: '?'
     },
-    password: {
+    message: {
       error: '?'
     },
 
@@ -63,7 +67,7 @@ function handleSubmit (){
 }
 
 
-export default function Login({ navigation }) {
+export default function FormWallet({ navigation }) {
   const loadScene = () => {
     navigation.navigate('App')
       //fetch('http://192.168.1.155:3000/users').then(res => res.json()).then(res => console.log(res))
@@ -74,7 +78,7 @@ export default function Login({ navigation }) {
     <View style={styles.container}>
       <Form
         ref={c => this._form = c}
-        type={User}
+        type={Forms}
         options={options}
 
       />
@@ -82,7 +86,6 @@ export default function Login({ navigation }) {
         title="Sign Up!"
         onPress={() => {handleSubmit(); loadScene();}}
         color = '#BD0EF1'
-        
       />
     </View>
   );
@@ -95,5 +98,6 @@ const styles = StyleSheet.create({
     marginTop: 50,
     padding: 20,
     backgroundColor: '#ffffff',
+    maxHeight: 500
   },
 });

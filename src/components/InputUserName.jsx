@@ -9,7 +9,7 @@ const InputTextComment = () => {
       <TextInput
         style={styles.input}
         onChangeText={onChangeText}
-        placeholder="Введите имя пользователя"
+        placeholder="Введите id пользователя"
         value={text}
         maxLength={30}
       />
