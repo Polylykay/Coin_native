@@ -1,9 +1,8 @@
 import React from 'react';
 import { View, StyleSheet, Button } from 'react-native';
 import axios from 'axios';
-
-
 import t from 'tcomb-form-native';
+import {baseUrl} from "../../baseUrl";
 
 const Form = t.form.Form;
 
@@ -43,44 +42,41 @@ const options = {
     password: {
       error: '?'
     },
-
   },
   stylesheet: formStyles,
 };
 
 
-function handleSubmit (){
-  const value = this._form.getValue();
-  // console.log({password:value.password, username:value.username});
-  /*axios({
-    method: 'post',
-    url: `https://192.168.1.155:3000/auth/login`,
-    body: {username:value.username,password:value.password}
-  }).then((response) => {
-    console.log(response.data );
-  });*/
-
-}
 
 
 export default function Login({ navigation }) {
-  const loadScene = () => {
-    navigation.navigate('App')
-      //fetch('http://192.168.1.155:3000/users').then(res => res.json()).then(res => console.log(res))
-      
+  let _form = null
+
+  const handleSubmit =()=>{
+    const value = _form.getValue();
+    axios.post(`${baseUrl}/auth/login`,
+        {username:value.username,password:value.password},
+        {headers:{'Content-Type': 'application/json'}}
+    ).then(async (response) => {
+      const token = response.data.access_token
+      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+      // await SecureStore.setItemAsync('secure_token',token);
+      await navigation.navigate('App')
+    }).catch((e) => {
+      console.error(e)
+    });
   }
   return (
 
     <View style={styles.container}>
       <Form
-        ref={c => this._form = c}
+        ref={c => _form = c}
         type={User}
         options={options}
-
       />
       <Button
         title="Sign Up!"
-        onPress={() => {handleSubmit(); loadScene();}}
+        onPress={() => {handleSubmit();}}
         color = '#BD0EF1'
         
       />

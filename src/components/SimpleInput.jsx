@@ -1,16 +1,14 @@
 import React from 'react';
 import { SafeAreaView, StyleSheet, TextInput } from 'react-native';
 
-const InputTransferMoney = () => {
-  const [text, onChangeText] = React.useState(null);
-
+const SimpleInput = ({value, setValue, placeholder}) => {
   return (
     <SafeAreaView>
       <TextInput
         style={styles.input}
-        onChangeText={onChangeText}
-        placeholder="Введите сумму для перевода"
-        value={text}
+        onChangeText={setValue}
+        placeholder={placeholder}
+        value={value}
         maxLength={30}
       />
     </SafeAreaView>
@@ -28,4 +26,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default InputTransferMoney;
+export default SimpleInput;
