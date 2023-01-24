@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, Button } from 'react-native';
+import { View, StyleSheet, Button,} from 'react-native';
 import axios from 'axios';
 import t from 'tcomb-form-native';
 import {baseUrl} from "../../baseUrl";
@@ -51,6 +51,7 @@ const options = {
 
 export default function Login({ navigation }) {
   let _form = null
+  
 
   const handleSubmit =()=>{
     const value = _form.getValue();
@@ -59,9 +60,9 @@ export default function Login({ navigation }) {
         {headers:{'Content-Type': 'application/json'}}
     ).then(async (response) => {
       const token = response.data.access_token
-      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
       // await SecureStore.setItemAsync('secure_token',token);
-      await navigation.navigate('App')
+      await navigation.navigate('App') 
     }).catch((e) => {
       console.error(e)
     });
@@ -74,22 +75,26 @@ export default function Login({ navigation }) {
         type={User}
         options={options}
       />
+      
       <Button
         title="Sign Up!"
         onPress={() => {handleSubmit();}}
         color = '#BD0EF1'
         
       />
+   
     </View>
   );
 }
 
 
+
 const styles = StyleSheet.create({
   container: {
-    justifyContent: 'center',
-    marginTop: 50,
+    flex: 1,
+    justifyContent: 'top',
     padding: 20,
     backgroundColor: '#ffffff',
   },
+  
 });

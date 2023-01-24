@@ -7,10 +7,10 @@ import ProfileScreen from './screens/profile';
 import RatinScreen from './screens/rating';
 import ShopScreen from './screens/shop';
 
-const walletName = 'Wallet';
-const profileName = 'Profile';
-const ratingName = 'Rating';
-const shopName = 'Shop';
+const walletName = 'Кошелёк';
+const profileName = 'Профиль';
+const ratingName = 'Топ';
+const shopName = 'Магазин';
 
 const Tab = createBottomTabNavigator();
 
@@ -37,17 +37,19 @@ export function MainContainer() {
                     },
                 })}
 
+
                 tabBarOptions={{
                     activeTintColor: '#BD0EF1',
                     labelStyle: { fontSize: 10 },
-                    style: { padding: 10, height: 70}
+                    style: { padding: 10, height: 70},
+                   
                 }}
                 >
 
-                <Tab.Screen name={walletName} component={WalletHomeScreen} />
-                <Tab.Screen name={profileName} component={ProfileScreen} />
-                <Tab.Screen name={ratingName} component={RatinScreen} />
-                <Tab.Screen name={shopName} component={ShopScreen} />
+                <Tab.Screen name={walletName} component={WalletHomeScreen} options={{headerShown: false }} />
+                <Tab.Screen name={profileName} component={ProfileScreen} options={{headerShown: false }} />
+                <Tab.Screen name={ratingName} component={RatinScreen} options={{headerShown: false }} />
+                <Tab.Screen name={shopName} component={ShopScreen} options={{headerShown: false }} />
 
 
             </Tab.Navigator>

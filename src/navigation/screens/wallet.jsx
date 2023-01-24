@@ -2,8 +2,6 @@ import React, {useEffect, useState} from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import CustomButton from '../../components/CustomButton';
-import InputTextComment from '../../components/InputTextComment';
-import InputUserName from '../../components/InputUserName';
 import axios from 'axios';
 import SimpleInput from "../../components/SimpleInput";
 import {baseUrl} from "../../baseUrl";
@@ -40,7 +38,7 @@ export default function WalletHomeScreen({ navigation }) {
         });
     }
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#ffffff' }}>
       <Text style={{ fontSize: 26 }}> Доступно монет: {user?.coinsToSend}
       </Text>
       <SimpleInput value={coinsAmount} setValue={onChangeAmount} placeholder={"Введите сумму для перевода"} />

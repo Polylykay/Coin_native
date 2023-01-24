@@ -1,10 +1,33 @@
-import  React from 'react';
-import { Text, View } from 'react-native';
+import  React, {useState} from 'react';
+import { Text, View, StyleSheet } from 'react-native';
+
 
 export default function ProfileScreen({navigation}) {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text onPress={() => navigation.navigate('Wallet')} style={{fontSize: 26}}>Profile Screen</Text>
+    <View style={styles.container}>
+      <View style={styles.rectangle}>
+        <Text>name user</Text>
+      </View>
+      <View >
+        <Text>История</Text>
+      </View>
     </View>
+   
   );
 };
+
+
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'space-between',
+    backgroundColor: '#fff',
+  },
+
+  rectangle: {
+    flex: 0.25,
+    backgroundColor: '#BD0EF1',
+   
+  },
+});
