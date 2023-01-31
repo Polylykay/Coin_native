@@ -1,53 +1,25 @@
-import  React from 'react';
+import  React, {useState, useEffect} from 'react';
 import { SafeAreaView, FlatList, StyleSheet, Text, View } from 'react-native';
+import axios from 'axios';
+import {baseUrl} from "../../baseUrl";
 
-
-const persons = [
-  {
-	id: "1",
-	name: " 6$     i21s998",
-  },
-  {
-	id: "2",
-	name: "Winston Orn",
-  },
-  {
-	id: "3",
-	name: "Carlton Collins",
-  },
-  {
-	id: "4",
-	name: "Malcolm Labadie",
-  },
-  {
-	id: "5",
-	name: "Michelle Dare",
-  },
-  {
-	id: "6",
-	name: "Carlton Zieme",
-  },
-  {
-	id: "7",
-	name: "Jessie Dickinson",
-  },
-  {
-	id: "8",
-	name: "Julian Gulgowski",
-  },
-  {
-	id: "9",
-	name: "Ellen Veum",
-  },
-  {
-	id: "10",
-	name: "Lorena Rice",
-  },
-	
-  
-];
 
 export default function RatingScreen({navigation}) {
+  const [list, setList] = useState([])
+  useEffect(() =>{
+      getList()
+  },[])
+  const getList = () => {
+      axios({
+          method: 'get',
+          url: `${baseUrl}/users/top`,
+      }).then((response) => {
+        setList(response.data)
+        console.log(response.data);
+      }).catch((e) => {
+          console.error(e);
+      });
+  }
   const myItemSeparator = () => {
     return <View style={{ height: 1, backgroundColor: "grey",marginHorizontal:10}} />;
     };
@@ -63,8 +35,8 @@ export default function RatingScreen({navigation}) {
   return (
       <SafeAreaView style={styles.container}>
     <FlatList
-      data={persons}
-      renderItem={({ item }) => <Text style={styles.item}>{item.name}</Text>}
+      data={list}
+      renderItem={({ item }) => <Text style={styles.item}>{item.username} - {item.receivedTokens}$</Text>}
       keyExtractor={(item) => item.id}
       ItemSeparatorComponent={myItemSeparator}
       ListEmptyComponent={myListEmpty}

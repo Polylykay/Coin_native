@@ -42,17 +42,29 @@ export function MainContainer() {
                     activeTintColor: '#BD0EF1',
                     labelStyle: { fontSize: 10 },
                     style: { padding: 10, height: 70},
+                    "tabBarActiveTintColor": "#BD0EF1",
+                    "tabBarLabelStyle": {
+                      "fontSize": 10
+                    },
+                    "tabBarStyle": [
+                      {
+                        "display": "flex"
+                      },
+                      null
+                    ]
                    
                 }}
+               
                 >
 
                 <Tab.Screen name={walletName} component={WalletHomeScreen} options={{headerShown: false }} />
                 <Tab.Screen name={profileName} component={ProfileScreen} options={{headerShown: false }} />
                 <Tab.Screen name={ratingName} component={RatinScreen} options={{headerShown: false }} />
-                <Tab.Screen name={shopName} component={ShopScreen} options={{headerShown: false }} />
 
 
             </Tab.Navigator>
         </NavigationContainer>
     );
 };
+
+//<Tab.Screen name={shopName} component={ShopScreen} options={{headerShown: false }} />

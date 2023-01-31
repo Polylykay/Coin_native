@@ -22,7 +22,8 @@ export default function WalletHomeScreen({ navigation }) {
             url: `${baseUrl}/users/currentUser`,
         }).then((response) => {
             setUser(response.data)
-        }).catch((e) => {
+            console.log(response.data);
+          }).catch((e) => {
             console.error(e);
         });
     }
