@@ -15,7 +15,6 @@ export default function RatingScreen({navigation}) {
           url: `${baseUrl}/users/top`,
       }).then((response) => {
         setList(response.data)
-        console.log(response.data);
       }).catch((e) => {
           console.error(e);
       });

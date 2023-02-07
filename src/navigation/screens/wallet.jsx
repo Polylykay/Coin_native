@@ -10,7 +10,7 @@ import {baseUrl} from "../../baseUrl";
 export default function WalletHomeScreen({ navigation }) {
   const [user, setUser] = useState(null)
     const [coinsAmount, onChangeAmount] = React.useState('');
-    const [receiverId, onChangeReceiver] = React.useState('');
+    const [receiverUsername, onChangeReceiver] = React.useState('');
     const [reason, onChangeReason] = React.useState('');
 
     useEffect(() =>{
@@ -30,12 +30,12 @@ export default function WalletHomeScreen({ navigation }) {
 
     const sendTransaction = () => {
         axios.post(`${baseUrl}/transaction`,
-            {coinsAmount ,receiverId, reason},
+            {coinsAmount ,receiverUsername, reason},
             {headers:{'Content-Type': 'application/json'}}
         ).then((response) => {
             updateUser()
         }).catch((e) => {
-            console.error(e);
+            console.error(e?.response?.data);
         });
     }
   return (
@@ -43,7 +43,7 @@ export default function WalletHomeScreen({ navigation }) {
       <Text style={{ fontSize: 26 }}> Доступно монет: {user?.coinsToSend}
       </Text>
       <SimpleInput value={coinsAmount} setValue={onChangeAmount} placeholder={"Введите сумму для перевода"} />
-      <SimpleInput value={receiverId} setValue={onChangeReceiver} placeholder={"Введите айди получателя"} />
+      <SimpleInput value={receiverUsername} setValue={onChangeReceiver} placeholder={"Введите айди получателя"} />
       <SimpleInput value={reason} setValue={onChangeReason} placeholder={"Введите причину перевода"} />
       <CustomButton title="Отправить" onPress={sendTransaction} />
 
