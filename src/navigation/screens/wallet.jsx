@@ -35,7 +35,7 @@ export default function WalletHomeScreen({ navigation }) {
         ).then((response) => {
             updateUser()
         }).catch((e) => {
-            console.error(e);
+            console.error(e?.response?.data);
         });
     }
   return (

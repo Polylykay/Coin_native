@@ -77,7 +77,7 @@ export default function Login({ navigation }) {
       />
       
       <Button
-        title="Sign Up!"
+        title="Sign In!"
         onPress={() => {handleSubmit();}}
         color = '#BD0EF1'
         

@@ -6,8 +6,9 @@ import React,  {useState, useEffect} from 'react';
 import { SafeAreaView, Text, View, StyleSheet, Image } from 'react-native';
 import { Card } from 'react-native-paper';
 import axios from 'axios';
-import {baseUrl} from "../../baseUrl";
+import {baseUrl} from '../../baseUrl';
 import { Avatar } from "@rneui/base";
+import {RneTab} from '../../components/Tab'
 
 
 
