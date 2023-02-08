@@ -10,7 +10,7 @@ import ShopScreen from './screens/shop';
 const walletName = 'Кошелёк';
 const profileName = 'Профиль';
 const ratingName = 'Топ';
-const shopName = 'Магазин';
+const shopName = 'История';
 
 const Tab = createBottomTabNavigator();
 
@@ -31,7 +31,7 @@ export function MainContainer() {
                         } else if (rn === ratingName) {
                             iconName = focused ? 'analytics' : 'analytics-outline'
                         } else if (rn === shopName) {
-                            iconName = focused ? 'cart' : 'cart-outline'
+                            iconName = focused ? 'card' : 'card-outline'
                         }
                         return <Ionicons name={iconName} size={size} color={color}/>
                     },
@@ -60,6 +60,7 @@ export function MainContainer() {
                 <Tab.Screen name={walletName} component={WalletHomeScreen} options={{headerShown: false }} />
                 <Tab.Screen name={profileName} component={ProfileScreen} options={{headerShown: false }} />
                 <Tab.Screen name={ratingName} component={RatinScreen} options={{headerShown: false }} />
+                <Tab.Screen name={shopName} component={ShopScreen} options={{headerShown: false }} />
 
 
             </Tab.Navigator>
@@ -67,4 +68,3 @@ export function MainContainer() {
     );
 };
 
-//<Tab.Screen name={shopName} component={ShopScreen} options={{headerShown: false }} />

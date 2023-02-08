@@ -16,7 +16,7 @@ export default function RatingScreen({navigation}) {
       }).then((response) => {
         setList(response.data)
       }).catch((e) => {
-          console.error(e);
+          console.error(e?.response?.data);
       });
   }
   const myItemSeparator = () => {

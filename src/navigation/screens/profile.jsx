@@ -8,7 +8,7 @@ import { Card } from 'react-native-paper';
 import axios from 'axios';
 import {baseUrl} from '../../baseUrl';
 import { Avatar } from "@rneui/base";
-import {RneTab} from '../../components/Tab'
+
 
 
 
@@ -26,9 +26,8 @@ export default function ProfileScreen({navigation}) {
         url: `${baseUrl}/users/currentUser`,
     }).then((response) => {
         setUser(response.data)
-        console.log(response.data);
     }).catch((e) => {
-        console.error(e);
+        console.error(e?.response?.data);
     });
 }
   return (
@@ -78,7 +77,11 @@ export default function ProfileScreen({navigation}) {
 
      
         </Card>
+        
+        
+      
       </View>
+      
     </SafeAreaView>
      
   );

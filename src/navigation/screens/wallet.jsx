@@ -24,7 +24,7 @@ export default function WalletHomeScreen({ navigation }) {
             setUser(response.data)
             console.log(response.data);
           }).catch((e) => {
-            console.error(e);
+            console.error(e?.response?.data);
         });
     }
 
