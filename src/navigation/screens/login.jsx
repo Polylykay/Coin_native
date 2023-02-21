@@ -74,6 +74,7 @@ export default function Login({ navigation }) {
         ref={c => _form = c}
         type={User}
         options={options}
+        secureTextEntry={true}
       />
       
       <Button
