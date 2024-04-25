@@ -15,7 +15,7 @@ export default CustomButton;
 
 const styles = StyleSheet.create({
     container:{
-        padding: 15
+        padding: 15,
     },
     button:{
         borderRadius: 10,
@@ -25,8 +25,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         width: 330, 
         height: 50
+       
     },
     buttonText:{
-        color: '#fff'
+        color: '#fff',
     }
 })

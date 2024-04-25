@@ -46,10 +46,10 @@ export default function ProfileScreen({navigation}) {
             Профиль
             
           </Text>
-          <Avatar
+          {/* <Avatar
         activeOpacity={0.2}
         avatarStyle={{}}
-        containerStyle={{ backgroundColor: "#BDBDBD",  marginLeft:150, }}
+        containerStyle={{ backgroundColor: "#BDBDBD",  marginLeft:150,    justifyContent: 'center'      }}
         icon={{}}
         iconStyle={{}}
         imageProps={{}}
@@ -58,10 +58,11 @@ export default function ProfileScreen({navigation}) {
         placeholderStyle={{}}
         rounded
         size="large"
+
         source={{ uri: "https://randomuser.me/api/portraits/lego/6.jpg" }}
         title="I"
         titleStyle={{}}
-      />
+      /> */}
  
           <Text style={styles.paragraph}>
             {user?.username}
@@ -92,7 +93,6 @@ export default function ProfileScreen({navigation}) {
 // const styles = StyleSheet.create({
 //   container: {
 //     flex: 1,
-//     justifyContent: 'space-between',
 //     backgroundColor: '#fff',
 //   },
 
@@ -108,7 +108,6 @@ export default function ProfileScreen({navigation}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'top',
     padding: 20,
     backgroundColor: '#ffffff',
   },

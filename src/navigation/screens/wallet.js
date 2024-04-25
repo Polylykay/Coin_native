@@ -50,12 +50,15 @@ export default function WalletHomeScreen({ navigation }) {
             {headers:{'Content-Type': 'application/json'}}
         ).then((response) => {
             updateUser()
+            onChangeReason('')
+            onChangeReceiver('')
+            onChangeAmount('')
         }).catch((e) => {
             console.error(e?.response?.data);
         });
     }
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#ffffff' }}>
+    <View style={{ flex: 1, alignItems: 'center', backgroundColor: '#ffffff', paddingTop: 10,     justifyContent: 'center'  }}>
       <Text style={{ fontSize: 26 }}> Доступно монет: {user?.coinsToSend}
       </Text>
       <SimpleInput value={coinsAmount} setValue={onChangeAmount} placeholder={"Введите сумму для перевода"} />
